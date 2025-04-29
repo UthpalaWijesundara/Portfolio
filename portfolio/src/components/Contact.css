@@ -1,0 +1,220 @@
+.contact-section {
+    padding: 50px 0;
+    background-color: #0a0a0a;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s, transform 0.8s;
+  }
+  
+  .contact-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 70%, rgba(41, 98, 255, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .contact-card {
+    background-color: #111;
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  }
+  
+  .contact-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2962ff, #00dbde);
+    color: white;
+  }
+  
+  .contact-detail h3 {
+    color: #fff;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+  }
+  
+  .contact-detail p {
+    color: #aaa;
+    font-size: 0.95rem;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111;
+    color: #ccc;
+    transition: all 0.3s;
+  }
+  
+  .social-link:hover {
+    background: linear-gradient(135deg, #2962ff, #00dbde);
+    color: white;
+    transform: translateY(-3px);
+  }
+  
+  .contact-form-container {
+    background-color: #111;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    height: 391px;
+  }
+  
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .form-group {
+    position: relative;
+  }
+  
+  .form-group:nth-child(3),
+  .form-group:nth-child(4),
+  .submit-btn {
+    grid-column: span 2;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #0a0a0a;
+    border: 1px solid #333;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .contact-form textarea {
+    height: 100px;
+    resize: none;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #2962ff;
+    box-shadow: 0 0 0 2px rgba(41, 98, 255, 0.2);
+    outline: none;
+  }
+  
+  .submit-btn {
+    background: linear-gradient(90deg, #2962ff, #00dbde);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+  }
+  
+  .submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(41, 98, 255, 0.2);
+  }
+  
+  .btn-icon {
+    transition: transform 0.3s;
+  }
+  
+  .submit-btn:hover .btn-icon {
+    transform: translateX(5px);
+  }
+  
+  .form-message {
+    grid-column: span 2;
+    padding: 12px;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+  
+  .form-message.success {
+    background-color: rgba(46, 125, 50, 0.1);
+    color: #2e7d32;
+    border: 1px solid rgba(46, 125, 50, 0.3);
+  }
+  
+  .form-message.error {
+    background-color: rgba(198, 40, 40, 0.1);
+    color: #c62828;
+    border: 1px solid rgba(198, 40, 40, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+    .contact-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .contact-form {
+      grid-template-columns: 1fr;
+    }
+    
+    .form-group:nth-child(3),
+    .form-group:nth-child(4),
+    .submit-btn {
+      grid-column: span 1;
+    }
+    
+    .contact-card {
+      padding: 20px;
+    }
+  }

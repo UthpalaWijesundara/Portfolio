@@ -1,0 +1,249 @@
+.skills-section {
+  padding: 70px 0;
+  background-color: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+}
+
+.skills-bg-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgba(41, 98, 255, 0.1), rgba(0, 219, 222, 0.1));
+  filter: blur(50px);
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  left: -50px;
+  animation: floatAnimation 15s infinite ease-in-out;
+}
+
+.shape-2 {
+  width: 500px;
+  height: 500px;
+  bottom: -200px;
+  right: -100px;
+  animation: floatAnimation 20s infinite ease-in-out reverse;
+}
+
+.shape-3 {
+  width: 200px;
+  height: 200px;
+  top: 40%;
+  left: 30%;
+  animation: floatAnimation 12s infinite ease-in-out 2s;
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(30px, 20px) rotate(5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 60px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: fadeInTitle 0.8s ease forwards;
+}
+
+@keyframes fadeInTitle {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.title-accent {
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2962ff, #00dbde);
+  transform: translateX(-50%);
+  animation: expandWidth 1s ease-out forwards 0.5s;
+}
+
+@keyframes expandWidth {
+  from { width: 0; }
+  to { width: 60px; }
+}
+
+/* Skills Container */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.skill-category {
+  background: rgba(17, 17, 17, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.skill-category[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.category-icon {
+  font-size: 1.8rem;
+  margin-right: 15px;
+  background: linear-gradient(45deg, #2962ff, #00dbde);
+  
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.category-title {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.skill-item {
+  opacity: 0;
+  transform: translateX(-20px);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 14px;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.skill-category[data-visible="true"] .skill-item {
+  animation: slideInSkill 0.5s forwards;
+}
+
+@keyframes slideInSkill {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.skill-name {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.skill-tag {
+  font-size: 0.7rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: linear-gradient(45deg, rgba(41, 98, 255, 0.15), rgba(0, 219, 222, 0.15));
+  color: #bbb;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+ 
+/* Glass morphism effect */
+
+.skill-category:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 5px 10px rgba(79, 126, 255, 0.2);
+
+}
+
+/* Cool 3D tilt effect on hover */
+.skill-category:hover .category-icon {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
