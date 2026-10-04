@@ -1,57 +1,40 @@
-import React, { useState, useEffect } from 'react';
-import './Navbar.css';
-import { Menu, X } from 'lucide-react';
+import './NavBar.css'
+import { useState, useEffect } from 'react'
+import { Menu, X } from 'lucide-react'
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+const links = ['about', 'skills', 'projects', 'contact']
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+export default function NavBar() {
+  const [open, setOpen] = useState(false)
+  const [p, setP] = useState(0)
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
+    const f = () => setP((window.scrollY / Math.max(1, document.body.scrollHeight - window.innerHeight)) * 100)
+    f()
+    window.addEventListener('scroll', f, { passive: true })
+    return () => window.removeEventListener('scroll', f)
+  }, [])
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsOpen(false);
-    }
-  };
+  const go = (e, id) => {
+    e.preventDefault()
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    setOpen(false)
+  }
 
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-      <div className="navbar-container">
-        <div className="logo">
-          <span className="logo-text">UW</span>
-        </div>
-        
-        <div className="mobile-menu-btn" onClick={toggleMenu}>
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </div>
-        
-        <ul className={`nav-links ${isOpen ? 'active' : ''}`}>
-          <li><a onClick={() => scrollToSection('hero')} className="nav-link">Home</a></li>
-          <li><a onClick={() => scrollToSection('about')} className="nav-link">About</a></li>
-          <li><a onClick={() => scrollToSection('skills')} className="nav-link">Skills</a></li>
-          <li><a onClick={() => scrollToSection('projects')} className="nav-link">Projects</a></li>
-          <li><a onClick={() => scrollToSection('contact')} className="nav-link">Contact</a></li>
+    <nav className={`nav ${p > 1 ? 's' : ''}`}>
+      <div className="container nav-in">
+        <a href="#hero" className="logo" onClick={(e) => go(e, 'hero')}>&lt;UW<span>/</span>&gt;</a>
+        <button className="mbtn" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
+        <ul className={`links ${open ? 'open' : ''}`}>
+          {links.map((l, i) => (
+            <li key={l}><a href={`#${l}`} onClick={(e) => go(e, l)}><b>0{i + 1}.</b> {l}</a></li>
+          ))}
         </ul>
       </div>
+      <div className="bar" style={{ width: `${p}%` }} />
     </nav>
-  );
-};
-
-export default Navbar;
+  )
+}
