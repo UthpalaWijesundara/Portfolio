@@ -19,8 +19,6 @@ export default function Contact() {
   const [sent, setSent] = useState(false)
   const change = (e) => setF({ ...f, [e.target.name]: e.target.value })
 
-  // Opens the visitor's email app with the message pre-filled (no backend needed).
-  // For a real inbox form, swap this for Formspree or EmailJS.
   const submit = (e) => {
     e.preventDefault()
     const body = `${f.message}\n\nFrom: ${f.name} (${f.email})`

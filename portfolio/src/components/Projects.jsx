@@ -5,7 +5,6 @@ import { ExternalLink, Github, Scale, Plane, MapPinned, Coffee, Ticket, Palette,
 const STATUS = { live: 'LIVE', wip: 'IN PROGRESS', done: 'COMPLETED' }
 const TABS = ['All', 'Full Stack', 'AI & Data', 'Design', 'Software']
 
-// TODO: add your own repo URLs where repo is empty. Cards hide buttons that have no link.
 const projects = [
   { title: 'LegalXlk: Legal Case Management', cat: 'Full Stack', status: 'live', hue: 190, Icon: Scale, file: 'legalxlk.jsx',
     desc: 'Real-time gazette updates, task management, legal acts access, an AI legal assistant and secure cloud document storage for legal workflows.',
@@ -38,7 +37,7 @@ const projects = [
   { title: 'Plane Management System', cat: 'Software', status: 'done', hue: 200, Icon: Plane, file: 'PlaneManager.java',
     desc: 'Java application for seat reservations: buy, cancel and search seats with a live seating plan.',
     tech: ['Java', 'OOP'], links: [{ t: 'Code', u: 'https://github.com/UthpalaWijesundara/JavaCW' }] },
-    
+
   { title: 'University Progression Predictor', cat: 'Software', status: 'done', hue: 120, Icon: Terminal, file: 'predictor.py',
     desc: 'Python program that predicts student progression outcomes to make academic planning more efficient.',
     tech: ['Python'], links: [{ t: 'Code', u: 'https://github.com/UthpalaWijesundara/PythonCW' }] },
