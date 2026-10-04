@@ -1,132 +1,28 @@
-import { useState, useEffect, useRef } from 'react';
-import './Skills.css';
+import './Skills.css'
+import { Layout, Server, Wrench } from 'lucide-react'
 
-const Skills = () => {
-  const [visibleCategories, setVisibleCategories] = useState([]);
-  const skillsRef = useRef(null);
-  
-  const skillCategories = [
-    {
-      id: 1,
-      title: "Frontend Development",
-      icon: "💻",
-      skills: [
-        { name: "React"},
-        { name: "JavaScript" },
-        { name: "HTML" },
-        { name: "Angular" },
-        { name: "CSS" }
-      ]
-    },
-    {
-      id: 2,
-      title: "Backend Development",
-      icon: "⚙️",
-      skills: [
-        { name: "Java", },
-        { name: "Python" },
-        { name: "Springboot" },
-        { name: "Firebase" },
-        { name: "MYSQL" }
-      ]
-    },
-    {
-      id: 3,
-      title: "Tools & Technologies",
-      icon: "🛠️",
-      skills: [
-        { name: "Git/GitHub" },
-        { name: "Docker"},
-        { name: "Figma" },
-        { name: "Adobe Lightroom"},
-        { name: "GCP" }
-      ]
-    }
-  ];
+const groups = [
+  { file: 'frontend', Icon: Layout, items: ['React', 'JavaScript', 'HTML', 'CSS', 'Angular'] },
+  { file: 'backend', Icon: Server, items: ['Java', 'Spring Boot', 'Python', 'PostgreSQL', 'MySQL', 'Firebase'] },
+  { file: 'tools', Icon: Wrench, items: ['Git / GitHub', 'Docker', 'Figma', 'Adobe Lightroom', 'GCP'] },
+]
 
-  useEffect(() => {
-    const observeElements = () => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const categoryId = parseInt(entry.target.dataset.id);
-              if (!visibleCategories.includes(categoryId)) {
-                setVisibleCategories(prev => [...prev, categoryId]);
-              }
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        
-      );
-
-      const categoryElements = document.querySelectorAll('.skill-category');
-      categoryElements.forEach(element => {
-        observer.observe(element);
-      });
-
-      return observer;
-    };
-
-    const observer = observeElements();
-
-    return () => {
-      if (observer) {
-        observer.disconnect();
-      }
-    };
-  }, [visibleCategories]);
-
+export default function Skills() {
   return (
-    <section id="skills" className="skills-section" ref={skillsRef}>
-      <div className="skills-bg-shapes">
-        <div className="shape shape-1"></div>
-        <div className="shape shape-2"></div>
-        <div className="shape shape-3"></div>
-      </div>
-      
+    <section id="skills">
       <div className="container">
-        <h2 className="section-title">
-          My Skills
-          
-        </h2>
-        
-        <div className="skills-container">
-          {skillCategories.map((category) => (
-            <div 
-              key={category.id} 
-              className="skill-category"
-              data-id={category.id}
-              data-visible={visibleCategories.includes(category.id)}
-            >
-              <div className="category-header">
-                <span className="category-icon">{category.icon}</span>
-                <h3 className="category-title">{category.title}</h3>
-              </div>
-              
-              <div className="skills-list">
-                {category.skills.map((skill, skillIndex) => (
-                  <div 
-                    key={skill.name} 
-                    className="skill-item"
-                    style={{ 
-                      animationDelay: `${skillIndex * 200}ms` 
-                    }}
-                  >
-                    <div className="skill-info">
-                      <span className="skill-name">{skill.name}</span>
-                    </div>
-                   
-                  </div>
-                ))}
-              </div>
+        <h2 className="sec-title reveal"><span className="idx">02.</span> skills</h2>
+        <div className="sk-grid">
+          {groups.map(({ file, Icon, items }, i) => (
+            <div className="win reveal" key={file} style={{ transitionDelay: `${i * 100}ms` }}>
+              <div className="win-h"><Icon size={14} /><span>~/{file}</span></div>
+              <ul className="win-b chips">
+                {items.map((s) => <li key={s}><b>$</b> {s}</li>)}
+              </ul>
             </div>
           ))}
         </div>
       </div>
     </section>
-  );
-};
-
-export default Skills;
+  )
+}
