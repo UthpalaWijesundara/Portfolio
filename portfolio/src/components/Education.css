@@ -1,0 +1,13 @@
+/* Education.css : degree, school, certificates, achievements cards */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+.edu-card{transition:opacity .7s,transform .3s,border-color .3s}
+.edu-card:hover{transform:translateY(-5px);border-color:rgba(34,211,238,.4)}
+.edu-b{padding:20px;display:flex;flex-direction:column;gap:12px}
+.edu-b h3{font:700 1.05rem var(--mono)}
+.edu-sub{color:var(--mu);font-size:.9rem}
+.edu-period{color:var(--c);font-size:12px}
+.edu-g h4{font:600 11px var(--mono);color:var(--v);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.edu-chips{display:flex;flex-wrap:wrap;gap:6px}
+.edu-chip{font:11px var(--mono);padding:3px 10px;border-radius:99px;border:1px solid var(--line);color:var(--mu)}
+.edu-list{list-style:none;display:grid;gap:8px;color:var(--mu);font-size:.9rem}
+.edu-list li::before{content:'> ';color:var(--g);font-family:var(--mono)}

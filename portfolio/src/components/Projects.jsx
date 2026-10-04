@@ -8,7 +8,7 @@ const TABS = ['All', 'Full Stack', 'AI & Data', 'Design', 'Software']
 const projects = [
   { title: 'LegalXlk: Legal Case Management', cat: 'Full Stack', status: 'live', hue: 190, Icon: Scale, file: 'legalxlk.jsx',
     desc: 'Real-time gazette updates, task management, legal acts access, an AI legal assistant and secure cloud document storage for legal workflows.',
-    tech: ['React', 'Spring Boot', 'Firebase'], links: [{ t: 'Live', u: 'https://legalxlk.com/' }] },
+    tech: ['React', 'Spring Boot', 'Firebase'], links: [{ t: 'Live', u: 'https://legal-x-lk.vercel.app/' }] },
 
   { title: 'GeoDeed-NER (Final Year Project)', cat: 'AI & Data', status: 'wip', hue: 265, Icon: MapPinned, file: 'geodeed.py',
     desc: 'Hybrid NLP and spatial system that reads deed text, extracts boundary descriptions, builds polygons and detects land boundary conflicts across Sri Lanka\'s dual registry.',
@@ -20,7 +20,11 @@ const projects = [
 
   { title: 'Kayaa Cafe', cat: 'Full Stack', status: 'live', hue: 25, Icon: Coffee, file: 'kayaacafe.jsx',
     desc: 'Cafe ordering website with customer checkout, an admin order dashboard, JWT and Google sign in, and email order confirmations.',
-    tech: ['React', 'Spring Boot', 'PostgreSQL', 'OAuth2'], links: [{ t: 'Live', u: 'https://kayaacafe.lk' }] },
+    tech: ['React', 'Spring Boot', 'PostgreSQL', 'JWT', 'Google OAuth', 'Gmail API', 'PayHere', 'Railway', 'Vercel'], links: [{ t: 'Live', u: 'https://kayaacafe.lk' }] },
+
+  { title: 'Airline Booking & Online Check-in System', cat: 'Software', status: 'done', hue: 120, Icon: Plane, file: 'checkin.java',
+    desc: 'Developed the backend for an airline reservation and online check-in system supporting flight booking,passenger check in, reservation management, and digital boarding pass generation',
+    tech: ['Java', 'Spring Boot', 'PostgreSQL', 'Spring Security', 'JWT', 'QR Code', 'JavaMail'], links: [{ t: 'Code', u: 'https://github.com/UthpalaWijesundara/checkin' }] },
 
   { title: 'Real Time Ticketing System', cat: 'Full Stack', status: 'done', hue: 150, Icon: Ticket, file: 'Ticketing.java',
     desc: 'Real-time ticket booking with OOP design and multithreading for concurrent ticket purchases and vendor updates.',
@@ -81,7 +85,7 @@ export default function Projects() {
   return (
     <section id="projects">
       <div className="container">
-        <h2 className="sec-title reveal"><span className="idx">03.</span> projects</h2>
+        <h2 className="sec-title reveal"><span className="idx">05.</span> projects</h2>
         <div className="filters reveal">
           {TABS.map((t) => (
             <button key={t} className={`fb ${tab === t ? 'on' : ''}`} onClick={() => setTab(t)}>{t}</button>

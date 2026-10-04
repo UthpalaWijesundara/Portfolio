@@ -2,7 +2,7 @@ import './NavBar.css'
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
 
-const links = ['about', 'skills', 'projects', 'contact']
+const links = ['about', 'experience', 'education', 'skills', 'projects', 'contact']
 
 export default function NavBar() {
   const [open, setOpen] = useState(false)

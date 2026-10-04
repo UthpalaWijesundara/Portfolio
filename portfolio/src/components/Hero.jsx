@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Download, ArrowRight } from 'lucide-react'
 import cv from '../assets/Uthpala-CV.pdf'
 
-const roles = ['Full Stack Developer', 'Computer Science Student', 'UI/UX Designer', 'Photographer']
+const roles = ['Former Software Engineer Intern at IFS', 'Full Stack Developer', 'Computer Science Student', 'UI/UX Designer', 'Photographer']
 
 function useTyped(words) {
   const [t, setT] = useState('')
@@ -71,7 +71,7 @@ export default function Hero() {
           <p className="mono cy">&gt; hello_world<span className="cur" /></p>
           <h1>Uthpala<br /><span className="grad">Wijesundara</span></h1>
           <p className="role mono">{role}<span className="cur" /></p>
-          <p className="lead">I build full stack web apps and design interfaces people enjoy using. Final year Computer Science student working with Java, Spring Boot, React and PostgreSQL.</p>
+          <p className="lead">Software engineer and final year Computer Science student at IIT Sri Lanka. I build full stack apps with Java, Spring Boot, React and PostgreSQL, and I have worked on backend workflow features inside IFS Cloud.</p>
           <div className="cta">
             <a className="btn solid" href="#projects" onClick={go}>View projects <ArrowRight size={16} /></a>
             <a className="btn" href={cv} download="Uthpala-CV.pdf"><Download size={16} /> Download CV</a>
@@ -79,12 +79,13 @@ export default function Hero() {
         </div>
         <div className="win">
           <div className="win-h"><i className="dot" style={{ background: '#ff5f57' }} /><i className="dot" style={{ background: '#febc2e' }} /><i className="dot" style={{ background: '#28c840' }} /><span>~/uthpala/portfolio</span></div>
-          <pre className="win-b">
+<pre className="win-b">
 <span className="mu">$</span> whoami{'\n'}<span className="g">uthpala_wijesundara</span>{'\n\n'}
+<span className="mu">$</span> cat role.txt{'\n'}Software Engineer Intern @ IFS{'\n'}BSc CS (Final Year) @ IIT Sri Lanka{'\n\n'}
 <span className="mu">$</span> cat stack.json{'\n'}
 {'{'}{'\n'}  <span className="v">"backend"</span>: [<span className="g">"Java"</span>, <span className="g">"Spring Boot"</span>],{'\n'}  <span className="v">"frontend"</span>: [<span className="g">"React"</span>],{'\n'}  <span className="v">"database"</span>: <span className="g">"PostgreSQL"</span>{'\n'}{'}'}{'\n\n'}
 <span className="mu">$</span> status{'\n'}<span className="g">●</span> building AeroOps, GeoDeed-NER<span className="cur" />
-          </pre>
+</pre>
         </div>
       </div>
     </section>

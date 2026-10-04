@@ -30,7 +30,7 @@ export default function Contact() {
   return (
     <section id="contact">
       <div className="container">
-        <h2 className="sec-title reveal"><span className="idx">04.</span> contact</h2>
+        <h2 className="sec-title reveal"><span className="idx">06.</span> contact</h2>
         <div className="ct-grid">
           <div className="reveal">
             <p className="lead">Have a project, an internship or just want to talk tech? My inbox is open.</p>
